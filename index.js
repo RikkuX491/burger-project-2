@@ -1,9 +1,13 @@
 const burgerMenu = document.getElementById('burger-menu')
 
+let burgersArrayLength;
+
 fetch("http://localhost:3000/burgers")
 .then(response => response.json())
 .then(burgers => {
     burgers.forEach(addBurgerToBurgersList)
+
+    burgersArrayLength = burgers[burgers.length - 1].id
 })
 
 function addBurgerToBurgersList(burger){
@@ -36,3 +40,23 @@ function displayBurgerDetails(burger){
     const burgerPriceElement = document.getElementById('burger-price')
     burgerPriceElement.textContent = `Price: ${burger.price}`
 }
+
+const burgerForm = document.getElementById('burger-form')
+burgerForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    
+    const newNameInputElement = document.getElementById('new-name')
+    const newImageInputElement = document.getElementById('new-image')
+    const newPriceInputElement = document.getElementById('new-price')
+
+    const newBurger = {
+        id: burgersArrayLength + 1,
+        name: newNameInputElement.value,
+        image: newImageInputElement.value,
+        price: Number(newPriceInputElement.value)
+    }
+
+    burgersArrayLength++
+
+    addBurgerToBurgersList(newBurger)
+})
