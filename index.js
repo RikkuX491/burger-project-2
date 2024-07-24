@@ -9,6 +9,8 @@ fetch("http://localhost:3000/burgers")
 function addBurgerToBurgersList(burger){
     const imageElement = document.createElement('img')
     imageElement.src = burger.image
+
+    // Display burger details in response to mouseover event
     imageElement.addEventListener('mouseover', () => {
         displayBurgerDetails(burger)
     })
