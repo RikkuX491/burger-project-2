@@ -7,6 +7,8 @@ fetch("http://localhost:3000/burgers")
 .then(burgers => {
     burgers.forEach(addBurgerToBurgersList)
 
+    displayBurgerDetails(burgers[0])
+
     burgersArrayLength = burgers[burgers.length - 1].id
 })
 
