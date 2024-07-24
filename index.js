@@ -14,6 +14,11 @@ function addBurgerToBurgersList(burger){
     imageElement.addEventListener('mouseover', () => {
         displayBurgerDetails(burger)
     })
+
+    // Delete burger from burger menu in response to click event
+    imageElement.addEventListener('click', () => {
+        imageElement.remove()
+    })
     
     burgerMenu.appendChild(imageElement)
 }
