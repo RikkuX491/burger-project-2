@@ -9,7 +9,7 @@ fetch("http://localhost:3000/burgers")
 function addBurgerToBurgersList(burger){
     const imageElement = document.createElement('img')
     imageElement.src = burger.image
-    imageElement.addEventListener('click', () => {
+    imageElement.addEventListener('mouseover', () => {
         displayBurgerDetails(burger)
     })
     
