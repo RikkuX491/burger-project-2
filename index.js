@@ -1,3 +1,5 @@
-const myName = prompt("What's your name?")
-
-console.log(myName)
+fetch("http://localhost:3000/burgers")
+.then(response => response.json())
+.then(burgers => {
+    console.log(burgers)
+})
